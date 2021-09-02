@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <title>Book Archive</title>
+</head>
+
+<body>
+
+  <!-- input area -->
+  <div class="input-group  w-75 mx-auto my-5">
+    <input id="input-field" type="text" class="form-control" placeholder="Search your Books"
+      aria-label="Recipient's username" aria-describedby="button-addon2">
+
+      <!-- search button -->
+    <button onclick="loadBookData()" class="btn btn-outline-secondary" type="button">Search</button>
+  </div>
+
+  <main>
+    <section class="container overflow-hidden">
+
+      <!-- spinner -->
+      <div class="d-flex justify-content-center">
+        <div id="spinner" class="spinner-border d-none" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- result found -->
+      <h5 id="result-found" class="my-5 text-center text-primary "></h5>
+
+      <!-- search result -->
+      <div id="search-result" class="row row-cols-1 row-cols-md-3 g-5">
+      </div>
+
+    </section>
+  </main>
+
+
+  <!-- bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+
+  <!-- main script -->
+  <script src="js/book-archieve.js"></script>
+</body>
+
+</html>
