@@ -26,7 +26,7 @@ const loadBookData = () => {
 }
 
 const displayBookData = data => {
-    const booksInfo = data.docs.slice(0, 40);
+    const booksInfo = data.docs.slice(0, 21);
     document.getElementById('spinner').classList.add('d-none');
     const searchResult = document.getElementById('search-result');
     document.getElementById('result-found').innerText = `Books Found: ${data.numFound}`;
@@ -36,7 +36,7 @@ const displayBookData = data => {
     if (booksInfo.length === 0) {
         searchResult.innerHTML = `
         
-       <h1 class="bg-warning w-75 mx-auto rounded-3 text-center p-2">Soory, No search results found!!</h1>
+       <h1 class="bg-warning w-75 mx-auto rounded-3 text-center p-2">Sorry, No search results found!!</h1>
 
         `
     }
@@ -47,21 +47,20 @@ const displayBookData = data => {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
-            <div class="card shadow">
+            <div class="card shadow-sm">
                 <div class="d-flex justify-content-center mt-3">
-                <img src="https://covers.openlibrary.org/b/id/${bookInfo.cover_i}-M.jpg" height=200px class="w-75" alt="Book image">
+                <img src="https://covers.openlibrary.org/b/id/${bookInfo.cover_i}-M.jpg" height=150px width=130px  alt="Book image">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title text-center mb-3">${bookInfo.title ? bookInfo.title : ''}</h5>
-                    <p class="text-center"><b>First Publish Year:</b>${bookInfo.first_publish_year ? bookInfo.first_publish_year : 'Not Found'}</p>
-                    <p class="card-text text-center"><b>Author:</b>${bookInfo.author_name[0] ? bookInfo.author_name[0] : 'Not Found'}</p>
-                    <p class="card-text text-center"><b>Publisher:</b>${bookInfo.publisher[0] ? bookInfo.publisher[0] : 'Not Found'}</p>
+                    <h5 class="card-title text-center mb-4">${bookInfo.title}</h5>
+                    
+                    <p class="mb-0"><b>First Publish Year: </b>${bookInfo.first_publish_year ? bookInfo.first_publish_year : 'Not Found'}</p>
+                    <p class="mb-0"><b>Author: </b>${bookInfo.author_name[0] ? bookInfo.author_name[0] : 'Not Found'}</p>
+                    <p class="mb-0"><b>Publisher: </b>${bookInfo.publisher[0] ? bookInfo.publisher[0] : 'Not Found'}</p>
                 </div>
             </div>
-        `
-        searchResult.appendChild(div);
-
-
+            `
+            searchResult.appendChild(div);
         })
     }
 }
